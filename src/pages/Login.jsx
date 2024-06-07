@@ -5,12 +5,16 @@ import style from './Pages.module.css'
 const textFieldTheme = createTheme({
   typography: {
     fontFamily: 'Raleway, Arial',
-    // fontSize: '10px'
+    fontSize: 10,
+    '@media (min-width:600px)': {
+      fontSize: '1rem',
+    },
   },
 })
 const buttonTheme = createTheme({
   typography: {
     fontFamily: 'RobotoMono',
+    fontSize: '1vw !important',
   },
   palette: {
     primary: {
@@ -26,33 +30,68 @@ function Login() {
     
     return (
       <div className={style.pageStructure}>
-      {/* Title div */}
-        <div className={style.titleDiv}>
-          <Title content = "Iniciar Sesión" color='#505862'/>
-        </div>
-        <div className={style.fillDiv}>
-          <ThemeProvider theme={textFieldTheme}>
-            <TextField id="outlined-basic" label="Correo" variant="outlined" required />
-            <TextField id="outlined-basic" label="Contraseña" variant="outlined" required />
-          </ThemeProvider>
-        </div>
-        <div className={style.fillDiv}>
-          <ThemeProvider theme={buttonTheme}>
-            <Button variant="contained" >Ingresar</Button>  
-          </ThemeProvider>
-        </div>
-        <div style={{
-          fontFamily: "Raleway", 
-          display: 'flex', 
-          flexDirection: 'column', 
-          maxWidth: 'fit-content',
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          height: '50vh',
-          justifyContent: 'space-evenly'
+      <h1 style={{ 
+        fontFamily: 'RobotoMono', 
+        fontSize: '8vw', 
+        color:'#505862',
+        maxWidth: 'fit-content',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        }}
+        >
+          ActiUVG
+        </h1>
+        {/* mini form */}
+        <div className={style.miniForm}>
+          {/* Title div */}
+          <div className={style.titleDiv}>
+            <Title content = "Iniciar Sesión" color='#505862'/>
+          </div>
+          <div className={style.fillDiv}>
+            <ThemeProvider theme={textFieldTheme}>
+              <TextField 
+                id="outlined-basic" 
+                label="Correo" variant="outlined" 
+                required   
+                // error
+                // helperText="Mensaje de error"
+              />
+              <TextField 
+                id="outlined-basic" 
+                label="Contraseña" 
+                required 
+                // error
+                // helperText="Mensaje de error"  
+              />
+            </ThemeProvider>
+          </div>
+          <div style={{
+            width: '40%',
+            height: '25%',
+            display: 'flex',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
           }}>
-            <a href="">He olvidado mi contraseña</a>
-            <a href="">¿No eres miembro? Registrate</a>
+            <ThemeProvider theme={buttonTheme}>
+              <Button variant="contained" >Ingresar</Button>  
+            </ThemeProvider>
+          </div>
+          <div style={{
+            fontFamily: "Raleway", 
+            display: 'flex', 
+            flexDirection: 'column', 
+            maxWidth: 'fit-content',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            height: '10vh',
+            justifyContent: 'space-evenly',
+            fontSize: '1vw'
+            }}>
+              <a href="">He olvidado mi contraseña</a>
+              <a href="">¿No eres miembro? Registrate</a>
+          </div>
         </div>
       </div>
     )
