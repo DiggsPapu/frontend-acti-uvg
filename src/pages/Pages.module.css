@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     justify-items: center;
+    justify-content: space-between;
 }
 .titleDiv {
     max-width: fit-content;
@@ -14,7 +15,7 @@
     padding-bottom: 3%;
 }
 .fillDiv {
-    /* padding-top: 3%; */
+    margin-top: 10%;
     width: 70%;
     height: 25%;
     display: flex;
@@ -31,4 +32,5 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
+    box-shadow: 0.01vw 0.01vw;
 }

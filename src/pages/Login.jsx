@@ -67,7 +67,7 @@ function Login() {
           </div>
           <div style={{
             width: '40%',
-            height: '25%',
+            height: 'auto',
             display: 'flex',
             marginLeft: 'auto',
             marginRight: 'auto',
@@ -87,7 +87,9 @@ function Login() {
             marginRight: 'auto',
             height: '10vh',
             justifyContent: 'space-evenly',
-            fontSize: '1vw'
+            fontSize: '1vw',
+            
+            marginTop: '5%',
             }}>
               <a href="">He olvidado mi contraseña</a>
               <a href="">¿No eres miembro? Registrate</a>
