@@ -5,6 +5,7 @@ import style from './Pages.module.css'
 const textFieldTheme = createTheme({
   typography: {
     fontFamily: 'Raleway, Arial',
+    // fontSize: '10px'
   },
 })
 const buttonTheme = createTheme({
@@ -47,7 +48,7 @@ function Login() {
           maxWidth: 'fit-content',
           marginLeft: 'auto',
           marginRight: 'auto',
-          height: '100%',
+          height: '50vh',
           justifyContent: 'space-evenly'
           }}>
             <a href="">He olvidado mi contraseña</a>
