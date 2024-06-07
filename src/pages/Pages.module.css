@@ -1,0 +1,26 @@
+.pageStructure{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+.titleDiv {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+.fillDiv {
+    display: flex;
+    height: 50vh;
+    padding-top: 10%;
+    max-width: 50%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: space-between; 
+}
