@@ -1,6 +1,6 @@
 import { Button, TextField, createTheme, ThemeProvider } from "@mui/material"
-
 import Title from '../components/Title'
+import style from './Pages.module.css'
 
 const textFieldTheme = createTheme({
   typography: {
@@ -24,8 +24,11 @@ const buttonTheme = createTheme({
 function Login() {
     
     return (
-      <div>
-      <Title content = "Iniciar Sesión" color='#505862'/>
+      <div className={style.pageStructure}>
+      {/* Title div */}
+        <div className={style.titleDiv}>
+          <Title content = "Iniciar Sesión" color='#505862'/>
+        </div>
       <ThemeProvider theme={textFieldTheme}>
         <TextField id="outlined-basic" label="Correo" variant="outlined" required />
         <TextField id="outlined-basic" label="Contraseña" variant="outlined" required />
