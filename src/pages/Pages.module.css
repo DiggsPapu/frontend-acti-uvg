@@ -11,3 +11,14 @@
     margin-left: auto;
     margin-right: auto;
 }
+.fillDiv {
+    display: flex;
+    height: 50vh;
+    padding-top: 10%;
+    max-width: 50%;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: space-between; 
+}

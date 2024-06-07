@@ -29,17 +29,30 @@ function Login() {
         <div className={style.titleDiv}>
           <Title content = "Iniciar Sesión" color='#505862'/>
         </div>
-      <ThemeProvider theme={textFieldTheme}>
-        <TextField id="outlined-basic" label="Correo" variant="outlined" required />
-        <TextField id="outlined-basic" label="Contraseña" variant="outlined" required />
-      </ThemeProvider>
-      <ThemeProvider theme={buttonTheme}>
-        <Button variant="contained" >Ingresar</Button>  
-      </ThemeProvider>
-        <p style={{fontFamily: "Raleway"}}>
-            <a href="">He olvidado mi contraseña</a><br/>
+        <div className={style.fillDiv}>
+          <ThemeProvider theme={textFieldTheme}>
+            <TextField id="outlined-basic" label="Correo" variant="outlined" required />
+            <TextField id="outlined-basic" label="Contraseña" variant="outlined" required />
+          </ThemeProvider>
+        </div>
+        <div className={style.fillDiv}>
+          <ThemeProvider theme={buttonTheme}>
+            <Button variant="contained" >Ingresar</Button>  
+          </ThemeProvider>
+        </div>
+        <div style={{
+          fontFamily: "Raleway", 
+          display: 'flex', 
+          flexDirection: 'column', 
+          maxWidth: 'fit-content',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          height: '100%',
+          justifyContent: 'space-evenly'
+          }}>
+            <a href="">He olvidado mi contraseña</a>
             <a href="">¿No eres miembro? Registrate</a>
-        </p>
+        </div>
       </div>
     )
   }
