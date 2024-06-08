@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
-
+import style from './title.module.css'
 export default function Title({ content, color }){
     return (
-        <h3 style={{fontFamily: 'RobotoMono', color: color, fontSize: '4vw' }}>
+        <h3 className={style.title} style={{color: color}}>
             {content}
         </h3>
     )

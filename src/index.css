@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+body{
+    background-color: #F2F2F2;
+}
 @font-face {
     font-family: 'RobotoMono';
     src: url('/src/fonts/RobotoMono/RobotoMono-Medium.ttf') format('truetype');

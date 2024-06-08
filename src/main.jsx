@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './pages/Login.jsx'
+import SignUp from './pages/SignUp.jsx'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: '/Acti/Login/',
     element: <Login/>,
+  },
+  {
+    path: '/Acti/SignUp/',
+    element: <SignUp/>,
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
