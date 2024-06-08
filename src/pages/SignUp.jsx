@@ -1,14 +1,21 @@
-import { Button, TextField, createTheme, ThemeProvider } from "@mui/material"
+import { Button, createTheme, ThemeProvider } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import SchoolIcon from '@mui/icons-material/School'
+import CorporateFareIcon from '@mui/icons-material/CorporateFare'
 import Title from '../components/Title'
 import style from './Pages.module.css'
 
 const textFieldTheme = createTheme({
   typography: {
-    fontFamily: 'Raleway, Arial',
+    fontFamily: 'RobotoMono',
     fontSize: 10,
     '@media (min-width:600px)': {
       fontSize: '1rem',
+    },
+  },
+  palette:{
+    primary: {
+      main: '#367D39',
     },
   },
 })
@@ -50,20 +57,18 @@ function SignUp() {
           </div>
           <div className={style.fillDiv}>
             <ThemeProvider theme={textFieldTheme}>
-              <TextField 
-                id="outlined-basic" 
-                label="Correo" variant="outlined" 
-                required   
-                // error
-                // helperText="Mensaje de error"
-              />
-              <TextField 
-                id="outlined-basic" 
-                label="Contraseña" 
-                required 
-                // error
-                // helperText="Mensaje de error"  
-              />
+              <Button 
+                variant="outlined" 
+                onClick={() => {navigate(-1)}}
+                startIcon={<SchoolIcon />}
+              >
+                Estudiante
+              </Button>  
+              <Button 
+                variant="outlined" 
+                onClick={() => {navigate(-1)}}
+                startIcon={<CorporateFareIcon />}
+              >Organización</Button>  
             </ThemeProvider>
           </div>
           <div style={{
@@ -89,11 +94,10 @@ function SignUp() {
             height: '10vh',
             justifyContent: 'space-evenly',
             fontSize: '1vw',
-            
-            marginTop: '5%',
-            }}>
-              <a href="">He olvidado mi contraseña</a>
-              <a href="">¿No eres miembro? Registrate</a>
+            marginTop: '5%',  
+            }}
+            >
+              <p style={{ cursor: 'pointer',}} onClick={() => {navigate(-1)}}>¿Ya eres miembro? Iniciar Sesión</p>
           </div>
         </div>
       </div>
