@@ -1,5 +1,5 @@
 import { Button, TextField, createTheme, ThemeProvider } from "@mui/material"
-import { Link } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 import Title from '../components/Title'
 import style from './Pages.module.css'
 
@@ -27,8 +27,8 @@ const buttonTheme = createTheme({
   },
 })
 
-function Login() {
-    
+function SignUp() {
+    const navigate = useNavigate()
     return (
       <div className={style.pageStructure}>
       <h1 style={{ 
@@ -46,7 +46,7 @@ function Login() {
         <div className={style.miniForm}>
           {/* Title div */}
           <div className={style.titleDiv}>
-            <Title content = "Iniciar Sesión" color='#505862'/>
+            <Title content = "Registrate" color='#505862'/>
           </div>
           <div className={style.fillDiv}>
             <ThemeProvider theme={textFieldTheme}>
@@ -76,7 +76,7 @@ function Login() {
             justifyContent: 'space-evenly',
           }}>
             <ThemeProvider theme={buttonTheme}>
-              <Button variant="contained" >Ingresar</Button>  
+              <Button variant="contained" onClick={() => {navigate(-1)}}>Cancelar</Button>  
             </ThemeProvider>
           </div>
           <div style={{
@@ -92,12 +92,12 @@ function Login() {
             
             marginTop: '5%',
             }}>
-              <Link to={'/Acti/SignUp'}>¿No eres miembro? Registrate</Link>
               <a href="">He olvidado mi contraseña</a>
+              <a href="">¿No eres miembro? Registrate</a>
           </div>
         </div>
       </div>
     )
   }
 
-export default Login
+export default SignUp
