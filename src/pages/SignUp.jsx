@@ -94,7 +94,9 @@ function SignUp() {
             height: '10vh',
             justifyContent: 'space-evenly',
             fontSize: '1vw',
-            marginTop: '5%',  
+            marginTop: '5%', 
+            color: '#367D39',
+            textDecoration: 'underline', 
             }}
             >
               <p style={{ cursor: 'pointer',}} onClick={() => {navigate(-1)}}>¿Ya eres miembro? Iniciar Sesión</p>

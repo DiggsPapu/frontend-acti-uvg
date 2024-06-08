@@ -89,7 +89,8 @@ function Login() {
             height: '10vh',
             justifyContent: 'space-evenly',
             fontSize: '1vw',
-            
+            color: '#367D39',
+            textDecoration: 'underline',
             marginTop: '5%',
             }}>
               <Link to={'/Acti/SignUp'}>¿No eres miembro? Registrate</Link>
