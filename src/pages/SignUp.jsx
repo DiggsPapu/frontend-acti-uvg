@@ -1,4 +1,11 @@
-import { Button, createTheme, ThemeProvider } from "@mui/material"
+import { 
+  Button, 
+  createTheme, 
+  ThemeProvider, 
+  Stepper,
+  Step,
+  StepLabel 
+} from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import SchoolIcon from '@mui/icons-material/School'
 import CorporateFareIcon from '@mui/icons-material/CorporateFare'
@@ -19,6 +26,11 @@ const textFieldTheme = createTheme({
     },
   },
 })
+const steps = [
+  'Afiliación',
+  'Datos',
+  'Confirmación',
+];
 const buttonTheme = createTheme({
   typography: {
     fontFamily: 'RobotoMono',
@@ -49,6 +61,23 @@ function SignUp() {
         >
           ActiUVG
         </h1>
+        <div 
+        style={{ 
+            width: '50%', 
+            paddingTop: '2%',
+            paddingBottom: '2%',
+            marginLeft: 'auto', 
+            marginRight: 'auto',
+          }}
+          >
+          <Stepper>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        </div>
         {/* mini form */}
         <div className={style.miniForm}>
           {/* Title div */}
