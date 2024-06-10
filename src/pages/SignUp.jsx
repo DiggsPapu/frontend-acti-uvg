@@ -287,12 +287,93 @@ export default function SignUp() {
                   </div>
                   
                 ) :(
-                  <>
+                  <div style={{display: 'flex', flexDirection: 'column'}}>
+                  <Button 
+                    variant="text" 
+                    onClick={() => { setActiveStep(activeStep-1) }}
+                    startIcon={<KeyboardBackspaceIcon />}
+                  >Regresar</Button>
                     {/* Title div */}
                     <div className={style.titleDiv}>
                       <Title content = "Organización" color='#505862'/>
                     </div>
-                  </>
+                    <div style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'auto auto'
+                    }}>
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Nombre del contacto" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Nombre de la organización" 
+                      required 
+                    />
+                    </div>
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Dirección" 
+                      required 
+                    />
+                    <div style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'auto auto'
+                    }}>
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Teléfono" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Correo" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Contraseña" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Confirmar contraseña" 
+                      required 
+                    />
+                    </div>
+                    <div className={style.titleDiv}>
+                      <p style={{ fontSize: '1.0vw', fontFamily: 'RobotoMono', color:'#505862' }}>Redes sociales (debe colocar al menos uno)</p>
+                    </div>
+                    <div style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'auto auto'
+                    }}>
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Sitio Web" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Facebook" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="LinkedIn" 
+                      required 
+                    />
+                    <TextField 
+                      id="outlined-basic" 
+                      label="Instagram" 
+                      required 
+                    />
+                    </div>
+                    <ThemeProvider theme={buttonTheme}>
+                      <Button variant="contained" onClick={() => {navigate(-1)}}>Continuar</Button>  
+                    </ThemeProvider>
+                  </div>
               
                 )
               }
