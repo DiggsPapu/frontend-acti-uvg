@@ -11,7 +11,6 @@ import {
   Stepper,
   Step,
   StepLabel, 
-  StepButton,
   TextField
 } from "@mui/material"
 import { useNavigate } from "react-router-dom"
@@ -20,6 +19,7 @@ import CorporateFareIcon from '@mui/icons-material/CorporateFare'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
 import Title from '../components/Title'
 import style from './Pages.module.css'
+import StepperCompleted from '../components/StepperCompleted';
 
 const textFieldTheme = createTheme({
   typography: {
@@ -87,28 +87,13 @@ export default function SignUp() {
     setActiveStep(newActiveStep)
   }
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1)
-  }
-
-  const handleStep = (step) => () => {
-    setActiveStep(step)
-  }
-
-  const handleComplete = () => {
-    const newCompleted = completed
-    newCompleted[activeStep] = true
-    setCompleted(newCompleted)
-    handleNext()
-  }
-
   const handleReset = () => {
     setActiveStep(0)
     setCompleted({})
   }
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <div style={{ width: '100%' }}>
       <h1 style={{ 
         fontFamily: 'RobotoMono', 
         fontSize: '8vw', 
@@ -139,15 +124,7 @@ export default function SignUp() {
         </div>
         <div className={style.miniForm}>
         {allStepsCompleted() ? (
-          <React.Fragment>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-              <Box sx={{ flex: '1 1 auto' }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
-          </React.Fragment>
+          <StepperCompleted titleName='Registrate' buttonName='Volver a enviar el correo'/>
         ) : (
           <>
           {
@@ -374,7 +351,6 @@ export default function SignUp() {
                       <Button variant="contained" onClick={() => {navigate(-1)}}>Continuar</Button>  
                     </ThemeProvider>
                   </div>
-              
                 )
               }
               </>
@@ -383,7 +359,7 @@ export default function SignUp() {
           </>
         )}
       </div>
-    </Box>
+    </div>
   );
 }
 
