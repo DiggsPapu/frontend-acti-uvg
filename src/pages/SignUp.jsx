@@ -6,7 +6,8 @@ import {
   Stepper,
   Step,
   StepLabel, 
-  TextField
+  TextField,
+  styled
 } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import SchoolIcon from '@mui/icons-material/School'
@@ -15,7 +16,8 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
 import Title from '../components/Title'
 import style from './Pages.module.css'
 import StepperCompleted from '../components/StepperCompleted';
-
+import StepperHeader from "../components/StepperHeader"
+import TextEntry from '../components/TextEntry'
 const textFieldTheme = createTheme({
   typography: {
     fontFamily: 'RobotoMono',
@@ -49,7 +51,12 @@ const buttonTheme = createTheme({
     },
   },
 })
-
+const BackButton = styled(Button)({
+  fontFamily: 'RobotoMono',
+  color: '#505862',
+  textTransform: 'none',
+})
+const values = [["Apellidos", "Nombres"], ["Correo UVG", "Carnet"], ["Contraseña", "Confirmar contraseña"], ["Fecha de nacimiento", "Telefono"]]
 export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0)
   const [completed, setCompleted] = useState({})
@@ -58,33 +65,14 @@ export default function SignUp() {
 
   const totalSteps = () => {
     return steps.length
-  };
+  }
 
   const completedSteps = () => {
     return Object.keys(completed).length
-  };
-
-  const isLastStep = () => {
-    return activeStep === totalSteps() - 1
-  };
+  }
 
   const allStepsCompleted = () => {
     return completedSteps() === totalSteps()
-  }
-
-  const handleNext = () => {
-    const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
-        : activeStep + 1
-    setActiveStep(newActiveStep)
-  }
-
-  const handleReset = () => {
-    setActiveStep(0)
-    setCompleted({})
   }
 
   return (
@@ -100,23 +88,7 @@ export default function SignUp() {
         >
           ActiUVG
         </h1>
-        <div 
-        style={{ 
-            width: '50%', 
-            paddingTop: '2%',
-            paddingBottom: '2%',
-            marginLeft: 'auto', 
-            marginRight: 'auto',
-          }}
-          >
-          <Stepper activeStep={activeStep}>
-          {steps.map((label) => (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-        </div>
+        <StepperHeader steps={steps} activeStep={activeStep} />
         <div className={style.miniForm}>
         {allStepsCompleted() ? (
           <StepperCompleted titleName='Registrate' buttonName='Volver a enviar el correo'/>
@@ -189,60 +161,16 @@ export default function SignUp() {
                 afiliation ?
                 (
                   <div style={{display: 'flex', flexDirection: 'column'}}>
-                  <Button 
-                    variant="text" 
-                    onClick={() => { setActiveStep(activeStep-1) }}
-                    startIcon={<KeyboardBackspaceIcon />}
-                  >Regresar</Button>
+                  <BackButton 
+                      variant="text" 
+                      onClick={() => { setActiveStep(activeStep-1) }}
+                      startIcon={<KeyboardBackspaceIcon />}
+                    >Regresar</BackButton>
                     {/* Title div */}
                     <div className={style.titleDiv}>
                       <Title content = "Estudiante" color='#505862'/>
                     </div>
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'auto auto'
-                    }}>
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Apellidos" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Nombres" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Correo UVG" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Carnet" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Contraseña" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Confirmar contraseña" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Fecha de nacimiento" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Telefono" 
-                      required 
-                    />
-                    </div>
+                    <TextEntry values={values}/>
                     <TextField 
                       id="outlined-basic" 
                       label="Facultad" 

@@ -5,7 +5,7 @@ import {
   } from "@mui/material"
 import PropTypes from 'prop-types'
 
-export default function StepperHeader(steps, activeStep = 0){
+export default function StepperHeader({steps, activeStep = 0}){
     return (
         <div 
         style={{ 
