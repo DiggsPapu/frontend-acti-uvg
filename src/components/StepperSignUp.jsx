@@ -1,14 +1,5 @@
 import { useState } from "react"
-import { 
-    Button, 
-    createTheme, 
-    ThemeProvider, 
-    Stepper,
-    Step,
-    StepLabel, 
-    TextField,
-    styled
-  } from "@mui/material"
+import {Button,styled} from "@mui/material"
 import StepperHeader from './StepperHeader'
 import StepperFirst from "./StepperFirst"
 import StepperSecond from "./StepperSecond"
@@ -24,10 +15,17 @@ const BackButton = styled(Button)({
     textTransform: 'none',
   })
 export default function StepperSignUp(){
-    const [context, setContext] = useState({activeStep: 0, afiliation: 0})
+    const [activeStep, setActiveStep] = useState(0)
+    const [afiliation, setAfiliation] = useState(null)
+    const newAfiliation = (afil) => {
+        setAfiliation(afil)
+    }
+    const newStep = (step) => {
+        setActiveStep(step)
+    }
     return (
         <>
-            <StepperHeader steps={steps} activeStep={context.activeStep} />
+            <StepperHeader steps={steps} activeStep={activeStep} />
             <div className={{
                 backgroundColor: 'white',
                 width: '35vw',
@@ -39,14 +37,21 @@ export default function StepperSignUp(){
                 boxShadow: '0.01vw 0.01vw',
             }}>
             {
-                context.activeStep === 0 ?
-                (<StepperFirst setContext={setContext}/>)
+                activeStep === 0 && afiliation ===null ?
+                (<StepperFirst 
+                    setAfiliation={newAfiliation}
+                    setStep={newStep}
+                />)
                 :
                 (
                     <>
                         {
-                            context.activeStep === 1 ? 
-                            (<StepperSecond context={context} setContext={setContext}/>)
+                            activeStep === 1 ? 
+                            (<StepperSecond 
+                                afiliation={afiliation} 
+                                newStep={newStep}
+                                setAfiliation={newAfiliation}
+                            />)
                             :
                             (<StepperCompleted titleName="Confirma" buttonName="Volver a enviar el correo"/>)
                         }

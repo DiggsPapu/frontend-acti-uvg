@@ -1,0 +1,36 @@
+.pageStructure{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    justify-content: space-between;
+}
+.titleDiv {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+.fillDiv {
+    margin-top: 10%;
+    width: 70%;
+    height: 25%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    justify-content: space-evenly; 
+}
+.miniForm {
+    background-color: white;
+    width: 35vw;
+    height: 70%;
+    border-radius: 2.5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    box-shadow: 0.01vw 0.01vw;
+}

@@ -20,7 +20,7 @@ const buttonTheme = createTheme({
       },
     },
   })
-export default function StepperCompleted (titleName, buttonName, action = ()=>{}){
+export default function StepperCompleted ({titleName, buttonName, action = ()=>{}}){
     return (
         <>
             <div className={{
@@ -33,7 +33,7 @@ export default function StepperCompleted (titleName, buttonName, action = ()=>{}
                 <Title content = {titleName} color='#505862'/>
             </div>
             <ThemeProvider theme={buttonTheme}>
-              <Button variant="contained" onClick={action}>{buttonName}</Button>  
+              <Button variant="contained" >{buttonName}</Button>  
             </ThemeProvider>
       </>
     )

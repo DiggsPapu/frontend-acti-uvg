@@ -37,7 +37,7 @@ const textFieldTheme = createTheme({
       },
     },
   })
-export default function StepperFirst({setContext}){
+export default function StepperFirst({ setAfiliation, setStep }){
     const navigate = useNavigate()
     return (
         <>
@@ -64,14 +64,19 @@ export default function StepperFirst({setContext}){
         <ThemeProvider theme={textFieldTheme}>
           <Button 
             variant="outlined" 
-            onClick={() => { setContext({activeStep: 1, afiliation: 1 }) }}
+            onClick={()=>{
+              setAfiliation(0)
+              setStep(1)}}
             startIcon={<SchoolIcon />}
           >
             Estudiante
           </Button>  
           <Button 
             variant="outlined" 
-            onClick={() => { setContext({activeStep: 1, afiliation: 0 }) }}
+            onClick={()=>{
+              setAfiliation(1)
+              setStep(1)
+              }}
             startIcon={<CorporateFareIcon />}
           >Organización</Button>  
         </ThemeProvider>
@@ -111,5 +116,6 @@ export default function StepperFirst({setContext}){
 }
 
 StepperFirst.propTypes = {
-    setContext: PropTypes.func,
+    setAfiliation: PropTypes.func,
+    setStep: PropTypes.func,
 }

@@ -6,52 +6,53 @@ import {
     styled
   } from "@mui/material"
 import { useNavigate } from "react-router-dom"
+import PropTypes from 'prop-types'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
 import Title from './Title'
 import TextEntry from './TextEntry'
+import style from './stepper.module.css'
+
 
 const BackButton = styled(Button)({
     fontFamily: 'RobotoMono',
     color: '#505862',
     textTransform: 'none',
   })
-  const buttonTheme = createTheme({
-    typography: {
-      fontFamily: 'RobotoMono',
-      fontSize: '1vw !important',
+const buttonTheme = createTheme({
+  typography: {
+    fontFamily: 'RobotoMono',
+    fontSize: '1vw !important',
+  },
+  palette: {
+    primary: {
+      main: "#9BBE43",
     },
-    palette: {
-      primary: {
-        main: "#9BBE43",
-      },
-      secondary: {
-        main: "#9BBE43",
-      },
+    secondary: {
+      main: "#9BBE43",
     },
-  })
+  },
+})
 const values = [["Apellidos", "Nombres"], ["Correo UVG", "Carnet"], ["Contraseña", "Confirmar contraseña"], ["Fecha de nacimiento", "Telefono"]]
-
-export default function StepperSecond(context, setContext){
-    const navigate = useNavigate()
+const values2 = [["Nombre del contacto","Nombre de la organización" ]]
+const values3 = [["Teléfono", "Correo" ],["Contraseña", "Confirmar contraseña" ]]
+const values4 = [["Sitio Web", "Facebook" ],["LinkedIn","Instagram" ]]
+export default function StepperSecond({afiliation, newStep, setAfiliation}){
     return (
         <>
         {
-            context.afiliation === 0 ?
+            afiliation === 0 ?
             (
             <div style={{display: 'flex', flexDirection: 'column'}}>
                   <BackButton 
                       variant="text" 
-                      onClick={() => { setContext({activeStep: 0, afiliation: null }) }}
+                      onClick={() => {
+                        newStep(0)
+                        setAfiliation(null)
+                        }}
                       startIcon={<KeyboardBackspaceIcon />}
                     >Regresar</BackButton>
                     {/* Title div */}
-                    <div className={{
-                        maxWidth: 'fit-content',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        paddingTop: '5%',
-                        paddingBottom: '3%',
-                    }}>
+                    <div className={style.titleDiv}>
                       <Title content = "Estudiante" color='#505862'/>
                     </div>
                     <TextEntry values={values}/>
@@ -66,17 +67,23 @@ export default function StepperSecond(context, setContext){
                       label="Carrera" 
                       required 
                     />
-                      <Button variant="contained" onClick={() => {navigate(-1)}}>Continuar</Button>  
+                      <Button 
+                        variant="contained" 
+                        onClick={() => {newStep(2)}}
+                      >Continuar</Button>  
                     </ThemeProvider>
                   </div>)
             :
             (
                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                  <Button 
-                    variant="text" 
-                    onClick={() => { setContext({activeStep: 0, afiliation: null }) }}
-                    startIcon={<KeyboardBackspaceIcon />}
-                  >Regresar</Button>
+                  <BackButton 
+                      variant="text" 
+                      onClick={() => {
+                        newStep(0)
+                        setAfiliation(null)
+                        }}
+                      startIcon={<KeyboardBackspaceIcon />}
+                    >Regresar</BackButton>
                     {/* Title div */}
                     <div className={{
                         maxWidth: 'fit-content',
@@ -87,51 +94,13 @@ export default function StepperSecond(context, setContext){
                     }}>
                       <Title content = "Organización" color='#505862'/>
                     </div>
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'auto auto'
-                    }}>
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Nombre del contacto" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Nombre de la organización" 
-                      required 
-                    />
-                    </div>
+                    <TextEntry values={values2}/>
                     <TextField 
                       id="outlined-basic" 
                       label="Dirección" 
                       required 
                     />
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'auto auto'
-                    }}>
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Teléfono" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Correo" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Contraseña" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Confirmar contraseña" 
-                      required 
-                    />
-                    </div>
+                    <TextEntry values={values3}/>
                     <div className={{
                         maxWidth: 'fit-content',
                         marginLeft: 'auto',
@@ -141,37 +110,20 @@ export default function StepperSecond(context, setContext){
                     }}>
                       <p style={{ fontSize: '1.0vw', fontFamily: 'RobotoMono', color:'#505862' }}>Redes sociales (debe colocar al menos uno)</p>
                     </div>
-                    <div style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'auto auto'
-                    }}>
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Sitio Web" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Facebook" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="LinkedIn" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Instagram" 
-                      required 
-                    />
-                    </div>
+                    <TextEntry values={values4}/>
                     <ThemeProvider theme={buttonTheme}>
-                      <Button variant="contained" onClick={() => {navigate(-1)}}>Continuar</Button>  
+                      <Button 
+                        variant="contained" 
+                        onClick={() => {newStep(2)}}
+                      >Continuar</Button>  
                     </ThemeProvider>
                   </div>
             )
         }
         </>
     )
+}
+StepperSecond.propTypes = {
+  afiliation: PropTypes.number,
+  newStep: PropTypes.func,
 }
