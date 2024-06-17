@@ -5,13 +5,10 @@ import {
     TextField,
     styled
   } from "@mui/material"
-import { useNavigate } from "react-router-dom"
 import PropTypes from 'prop-types'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
 import Title from './Title'
 import TextEntry from './TextEntry'
-import style from './stepper.module.css'
-
 
 const BackButton = styled(Button)({
     fontFamily: 'RobotoMono',
@@ -52,7 +49,13 @@ export default function StepperSecond({afiliation, newStep, setAfiliation}){
                       startIcon={<KeyboardBackspaceIcon />}
                     >Regresar</BackButton>
                     {/* Title div */}
-                    <div className={style.titleDiv}>
+                    <div className={{
+                      maxWidth: 'fit-content',
+                      marginLeft: 'auto',
+                      marginRight: 'auto',
+                      paddingTop: '5%',
+                      paddingBottom: '3%',
+                    }}>
                       <Title content = "Estudiante" color='#505862'/>
                     </div>
                     <TextEntry values={values}/>
@@ -126,4 +129,5 @@ export default function StepperSecond({afiliation, newStep, setAfiliation}){
 StepperSecond.propTypes = {
   afiliation: PropTypes.number,
   newStep: PropTypes.func,
+  setAfiliation: PropTypes.func,
 }
