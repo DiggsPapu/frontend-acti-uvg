@@ -23,15 +23,10 @@ const buttonTheme = createTheme({
 export default function StepperCompleted ({titleName, buttonName, action = ()=>{}}){
     return (
         <>
-            <div style={{
-                maxWidth: 'fit-content',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                paddingTop: '5%',
-                paddingBottom: '3%',
-            }}>
-                <Title content = {titleName} color='#505862'/>
-            </div>
+            <p>Se ha enviado un correo de confirmación a:</p>
+            <p>abc@uvg.edu.gt</p>
+            <p>Se requiere de confirmar su cuenta para poder aplicar a los proyectos.<br/>
+            Si no encuentra el correo verifique en su bandeja de spam.</p>
             <ThemeProvider theme={buttonTheme}>
               <Button variant="contained" >{buttonName}</Button>  
             </ThemeProvider>

@@ -3,18 +3,10 @@ import {
     createTheme, 
     ThemeProvider, 
     TextField,
-    styled
   } from "@mui/material"
 import PropTypes from 'prop-types'
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
-import Title from './Title'
 import TextEntry from './TextEntry'
 
-const BackButton = styled(Button)({
-    fontFamily: 'RobotoMono',
-    color: '#505862',
-    textTransform: 'none',
-  })
 const buttonTheme = createTheme({
   typography: {
     fontFamily: 'RobotoMono',
@@ -40,26 +32,6 @@ export default function StepperSecond({afiliation, newStep, setAfiliation}){
           paddingLeft: '3%',
           paddingBottom: '20%'
         }}>
-        <div>
-          <BackButton 
-            variant="text" 
-            onClick={() => {
-              newStep(0)
-              setAfiliation(null)
-              }}
-            startIcon={<KeyboardBackspaceIcon />}
-          >Regresar</BackButton>
-          {/* Title div */}
-          <div style={{
-              maxWidth: 'fit-content',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              paddingTop: '5%',
-              paddingBottom: '3%',
-          }}>
-            <Title content = "Organización" color='#505862'/>
-          </div>
-        </div>
         {
             afiliation === 0 ?
             (

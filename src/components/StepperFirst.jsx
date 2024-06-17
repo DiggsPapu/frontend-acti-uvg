@@ -41,16 +41,6 @@ export default function StepperFirst({ setAfiliation, setStep }){
     const navigate = useNavigate()
     return (
         <>
-        {/* Title div */}
-         <div style={{
-                maxWidth: 'fit-content',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                paddingTop: '5%',
-                paddingBottom: '3%',
-            }}>
-        <Title content = "Registrate" color='#505862'/>
-      </div>
       <div style={{
         margintop: '10%',
         width: '70%',

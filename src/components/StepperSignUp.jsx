@@ -4,6 +4,8 @@ import StepperFirst from "./StepperFirst"
 import StepperSecond from "./StepperSecond"
 import StepperCompleted from "./StepperCompleted"
 import styleSign from './stepper.module.css'
+import TitleMiniForm from './TitleMiniForm'
+
 const steps = [
     'Afiliación',
     'Datos',
@@ -22,6 +24,7 @@ export default function StepperSignUp(){
         <>
             <StepperHeader steps={steps} activeStep={activeStep} />
             <div className={styleSign.miniForm}>
+            <TitleMiniForm activeStep={activeStep} afiliation={afiliation} newStep={newStep} setAfiliation={newAfiliation} />
             {
                 activeStep === 0 && afiliation ===null ?
                 (<StepperFirst 
