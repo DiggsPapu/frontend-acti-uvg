@@ -42,7 +42,7 @@ export default function StepperFirst({ setAfiliation, setStep }){
     return (
         <>
         {/* Title div */}
-         <div className={{
+         <div style={{
                 maxWidth: 'fit-content',
                 marginLeft: 'auto',
                 marginRight: 'auto',
@@ -51,7 +51,7 @@ export default function StepperFirst({ setAfiliation, setStep }){
             }}>
         <Title content = "Registrate" color='#505862'/>
       </div>
-      <div className={{
+      <div style={{
         margintop: '10%',
         width: '70%',
         height: '25%',

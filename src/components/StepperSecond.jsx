@@ -35,68 +35,56 @@ const values3 = [["Teléfono", "Correo" ],["Contraseña", "Confirmar contraseña
 const values4 = [["Sitio Web", "Facebook" ],["LinkedIn","Instagram" ]]
 export default function StepperSecond({afiliation, newStep, setAfiliation}){
     return (
-        <>
+        <div style={{
+          paddingRight: '3%',
+          paddingLeft: '3%',
+          paddingBottom: '20%'
+        }}>
+        <div>
+          <BackButton 
+            variant="text" 
+            onClick={() => {
+              newStep(0)
+              setAfiliation(null)
+              }}
+            startIcon={<KeyboardBackspaceIcon />}
+          >Regresar</BackButton>
+          {/* Title div */}
+          <div style={{
+              maxWidth: 'fit-content',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              paddingTop: '5%',
+              paddingBottom: '3%',
+          }}>
+            <Title content = "Organización" color='#505862'/>
+          </div>
+        </div>
         {
             afiliation === 0 ?
             (
             <div style={{display: 'flex', flexDirection: 'column'}}>
-                  <BackButton 
-                      variant="text" 
-                      onClick={() => {
-                        newStep(0)
-                        setAfiliation(null)
-                        }}
-                      startIcon={<KeyboardBackspaceIcon />}
-                    >Regresar</BackButton>
-                    {/* Title div */}
-                    <div className={{
-                      maxWidth: 'fit-content',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                      paddingTop: '5%',
-                      paddingBottom: '3%',
-                    }}>
-                      <Title content = "Estudiante" color='#505862'/>
-                    </div>
-                    <TextEntry values={values}/>
-                    <ThemeProvider theme={buttonTheme}>
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Facultad" 
-                      required 
-                    />
-                    <TextField 
-                      id="outlined-basic" 
-                      label="Carrera" 
-                      required 
-                    />
-                      <Button 
-                        variant="contained" 
-                        onClick={() => {newStep(2)}}
-                      >Continuar</Button>  
-                    </ThemeProvider>
-                  </div>)
+              <TextEntry values={values}/>
+              <ThemeProvider theme={buttonTheme}>
+              <TextField 
+                id="outlined-basic" 
+                label="Facultad" 
+                required 
+              />
+              <TextField 
+                id="outlined-basic" 
+                label="Carrera" 
+                required 
+              />
+                <Button 
+                  variant="contained" 
+                  onClick={() => {newStep(2)}}
+                >Continuar</Button>  
+              </ThemeProvider>
+            </div>)
             :
             (
                 <div style={{display: 'flex', flexDirection: 'column'}}>
-                  <BackButton 
-                      variant="text" 
-                      onClick={() => {
-                        newStep(0)
-                        setAfiliation(null)
-                        }}
-                      startIcon={<KeyboardBackspaceIcon />}
-                    >Regresar</BackButton>
-                    {/* Title div */}
-                    <div className={{
-                        maxWidth: 'fit-content',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        paddingTop: '5%',
-                        paddingBottom: '3%',
-                    }}>
-                      <Title content = "Organización" color='#505862'/>
-                    </div>
                     <TextEntry values={values2}/>
                     <TextField 
                       id="outlined-basic" 
@@ -123,7 +111,7 @@ export default function StepperSecond({afiliation, newStep, setAfiliation}){
                   </div>
             )
         }
-        </>
+        </div>
     )
 }
 StepperSecond.propTypes = {

@@ -23,7 +23,7 @@ const buttonTheme = createTheme({
 export default function StepperCompleted ({titleName, buttonName, action = ()=>{}}){
     return (
         <>
-            <div className={{
+            <div style={{
                 maxWidth: 'fit-content',
                 marginLeft: 'auto',
                 marginRight: 'auto',
